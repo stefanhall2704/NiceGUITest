@@ -1,0 +1,35 @@
+{
+    "ID": 19,
+    "title": "Testing Title",
+    "jira_work_label": "ITHD-1954",
+    "risk_level": "High",
+    "application_team_id": "3",
+    "release_id": 2134,
+    "approvals": [{"release_approval_type_id": 3}],
+    "application_user_id": 37,
+    "created_date": "2021-09-30T15:00:00",
+    "tasks": [
+        {
+            "release_activity_task": {
+                "title": "Task 1",
+                "description": "Task 1 Description",
+                "stage_status": "Complete"
+                }
+        },
+        {
+            "release_activity_task": {"title": "Task 2", "description": "Task 2 Description", "stage_status": "Complete"}
+        },
+        {
+            "release_activity_task": {"title": "Task 3", "description": "Task 3 Description", "stage_status": "Not Started"}
+        },
+        {
+            "release_activity_task": {"title": "Task 4", "description": "Task 4 Description", "stage_status": "Not Started"}
+        },
+        {
+            "release_activity_task": {"title": "Task 5", "description": "Task 5 Description", "stage_status": "In Progress"}
+        },
+        {
+            "release_activity_task": {"title": "Task 6", "description": "Task 6 Description", "stage_status": "Complete"}
+        }
+    ]
+}
