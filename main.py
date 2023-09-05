@@ -18,6 +18,7 @@ def build_activity_card(activity: Activity) -> None:
                 task = Task(task_data)
                 with ui.card().classes("w-full"), ui.card_section().classes("w-full"):
                     with ui.row().classes("justify-between"):
+                        ui.separator()
                         ui.label(task.activity["title"])
                         task.task_description()
                         task.stage_board()

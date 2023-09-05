@@ -17,13 +17,13 @@
                 }
         },
         {
-            "release_activity_task": {"title": "Task 2", "description": "Task 2 Description", "stage_status": "Complete"}
+            "release_activity_task": {"title": "Task 2 Title", "description": "Task 2 Description", "stage_status": "Complete"}
         },
         {
             "release_activity_task": {"title": "Task 3", "description": "Task 3 Description", "stage_status": "Not Started"}
         },
         {
-            "release_activity_task": {"title": "Task 4", "description": "Task 4 Description", "stage_status": "Not Started"}
+            "release_activity_task": {"title": "Task 4 Title", "description": "Task 4 Description", "stage_status": "Not Started"}
         },
         {
             "release_activity_task": {"title": "Task 5", "description": "Task 5 Description", "stage_status": "In Progress"}

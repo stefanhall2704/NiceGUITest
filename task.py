@@ -13,17 +13,41 @@ class Task(Activity):
                     ui.label("Description:")
                     ui.label(self.activity["description"])
 
+    def env_board_button(
+        self, button_str: str, status, dialog=False, complete: bool = False
+    ) -> None:
+        if complete is False:
+            ui.button(button_str, on_click=dialog.open).props(f"{status} color=green")
+        else:
+            ui.button(button_str).props(f"{status} color=green disabled")
+
+    def dialog(self, text: str, button_str: str, status: str, complete: bool = False):
+        if complete is False:
+            with ui.dialog() as dialog, ui.card():
+                ui.label(text)
+                ui.button("Close", on_click=dialog.close)
+            self.env_board_button(button_str=button_str, status=status, dialog=dialog)
+        else:
+            self.env_board_button(button_str=button_str, status=status, complete=True)
+
     def stage_board(self) -> None:
         stage_status = self.activity.get("stage_status", "Not Specified")
         with ui.column():
             ui.label(f"Stage Status: {stage_status}")
 
         if stage_status == "Not Started":
-            ui.button("Start Stage Task")
+            self.dialog(
+                text="Start Stage Task Dialog",
+                button_str="Start Stage Task",
+                status="inline",
+            )
         elif stage_status == "In Progress":
-            ui.button("Complete Stage Task")
+            self.dialog(
+                text="Complete Stage Task Dialog",
+                button_str="Complete Stage Task",
+                status="inline",
+            )
         else:
-            with ui.icon("checkbox").classes("text-green-500"):
-                ui.tooltip(
-                    f"Complete By Stefan Hall on 2021-09-30T15:00:00",
-                )
+            self.dialog(
+                text="None", button_str="Completed", status="outline", complete=True
+            )
