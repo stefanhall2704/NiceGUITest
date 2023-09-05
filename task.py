@@ -3,15 +3,15 @@ from activity import Activity
 
 
 class Task(Activity):
-    def __init__(self, task_data: dict):
-        super().__init__(task_data["release_activity_task"])
+    def __init__(self, task_data):
+        super().__init__(task_data.release_activity_task)
 
     def task_description(self) -> None:
         with ui.column():
-            if self.activity["description"]:
+            if self.activity.deployment_instructions:
                 with ui.grid(columns=1):
                     ui.label("Description:")
-                    ui.label(self.activity["description"])
+                    ui.label(self.activity.deployment_instructions)
 
     def env_board_button(
         self, button_str: str, status, dialog=False, complete: bool = False
@@ -31,7 +31,7 @@ class Task(Activity):
             self.env_board_button(button_str=button_str, status=status, complete=True)
 
     def stage_board(self) -> None:
-        stage_status = self.activity.get("stage_status", "Not Specified")
+        stage_status = self.activity.stage_status.status
         with ui.column():
             ui.label(f"Stage Status: {stage_status}")
 
